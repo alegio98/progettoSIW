@@ -1,0 +1,20 @@
+Descrizione dei casi d'uso implementati per il Progetto d'esame:                           ALESSANDRO GIOVANNINI 520310	
+
+-Per l'Utente:
+1)Sign up: registrazione di un utente.
+2)Autenticazione: login di un utente.
+3)Visualizzazione e aggiornamento del profilo utente.
+
+
+-Per il Progetto:
+1)Creazione di un nuovo progetto da parte dell'utente loggato.
+2)Visualizzare i miei progetti.
+3)Visualizzare tutti i progetti del sistema.
+4)Aggiornamento delle specifiche di un mio progetto.
+5)Cancellazione di un mio progetto.
+6)Aggiungere Tag nel mio progetto.
+
+-Per il Task:
+1)Aggiungere un nuovo task ad un mio progetto.
+2)Aggiornare un task del mio progetto.
+3)Cancellare un task dal mio progetto.
