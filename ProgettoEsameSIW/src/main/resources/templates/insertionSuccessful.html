@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it-IT" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Inserimento dati avvenuto con successo</title>
+</head>
+<body>
+	<h2>Vuoi inserire Task o Tag al progetto?</h2>
+
+
+	<table>
+		<tr>
+			<td><a th:href="'/add/task/' + ${projectForm.id}">Inserisci
+					Task</a></td>
+		</tr>
+
+		<tr>
+			<td><a th:href="'/add/tag/' + ${projectForm.id}">Inserisci
+					Tag</a></td>
+		</tr>
+
+	</table>
+
+	<h2>
+		Torna alla -> <a href="/home">Home</a>
+	</h2>
+
+</body>
+</html>

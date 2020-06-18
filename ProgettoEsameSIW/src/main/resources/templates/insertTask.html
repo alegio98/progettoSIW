@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it-IT" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<title>inserimento Task</title>
+</head>
+<body>
+	<h1>Inserisci task del progetto</h1>
+	<form id=insertTaskForm
+		th:action="@{/add/task/{projectid}(projectid=${projectForm.id})}"
+		method="POST">
+		<table>
+			<tr>
+				<td><label for="nomeInput">Nome</label></td>
+				<td><input id=nomeInput type="text" placeholder="NOME"
+					th:field="${taskForm.nome}" required></td>
+			</tr>
+
+			<tr>
+				<td><label for="descrizioneInput">Descrizione</label></td>
+				<td><input id=descrizioneInput type="text"
+					placeholder="DESCRIZIONE" th:field="${taskForm.descrizione}"></td>
+			</tr>
+
+			<tr>
+				<td><label for="dataInput">Data creazione</label></td>
+				<td><input id=dataInput type="text" placeholder="DATA"
+					th:field="${taskForm.dataCreazione}"></td>
+			</tr>
+
+			<tr>
+				<td><button type="submit">INSERISCI TASK</button></td>
+			</tr>
+
+
+		</table>
+	</form>
+</body>
+</html>

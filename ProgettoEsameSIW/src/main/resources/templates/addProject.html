@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it-IT" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<title>Inserimento progetto</title>
+</head>
+<body>
+	<h1>Inserisci i dati del progetto</h1>
+
+	<form id=registerUserForm th:action="@{/projects/add}"
+		th:object="${projectForm}" method="POST">
+
+
+		<table>
+			<tr>
+				<td><label for="projectNameInput">Nome Progetto</label></td>
+				<td><input id=projectNameInput type="text" placeholder="NOME"
+					required th:field="*{nome}" /></td>
+				<td th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"
+					th:style="'color:red'"></td>
+			</tr>
+
+			<tr>
+				<td><label for="descriptionInput">Descrizione Progetto</label></td>
+				<td><input id=descriptionInput type="text"
+					placeholder="DESCRIZIONE" required th:field="*{descrizione}" /></td>
+				<td th:if="${#fields.hasErrors('descrizione')}"
+					th:errors="*{descrizione}" th:style="'color:red'"></td>
+			</tr>
+
+			<tr>
+				<td><label for="projectNameInput">Data Creazione
+						Progetto</label></td>
+				<td><input id=projectNameInput type="text" placeholder="DATA"
+					required th:field="*{dataInizio}" /></td>
+				<td th:if="${#fields.hasErrors('dataInizio')}"
+					th:errors="*{dataInizio}" th:style="'color:red'"></td>
+			</tr>
+
+			<tr>
+				<td><button type="submit">CREA</button></td>
+			</tr>
+
+		</table>
+	</form>
+
+</body>
+</html>

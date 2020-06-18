@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="it-IT" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Progetto</title>
+</head>
+<body>
+	<h2>Specifiche generali del progetto</h2>
+	<table>
+		<tr>
+			<td>Nome:</td>
+			<td th:text="${project.nome}"></td>
+		</tr>
+
+		<tr>
+			<td>Descrizione:</td>
+			<td th:text="${project.descrizione}"></td>
+		</tr>
+
+		<tr>
+			<td>Data creazione:</td>
+			<td th:text="${project.dataInizio}"></td>
+		</tr>
+
+		<tr>
+			<td>Proprietario:</td>
+			<td th:text="${project.owner.nome} + ' ' + ${project.owner.cognome}"></td>
+		</tr>
+
+
+	</table>
+
+	<div th:if="${members.size() >0}">
+		<h3 style="background-color: green;">&#8594;Condiviso con:</h3>
+		<ul>
+			<li th:each="member : ${members}">
+				<div th:text="${member.nome} + ' ' + ${member.cognome}"></div>
+			</li>
+		</ul>
+	</div>
+
+
+
+	<div>
+		<h3 style="background-color: LightGray;">&#8594;Task del progetto</h3>
+
+		<table class="table table -hover">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Descrizione</th>
+					<th>Data creazione</th>
+					<th>Cancella</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="task : ${project.tasks}">
+					<td th:text="${task.nome}"></td>
+					<td th:text="${task.descrizione}"></td>
+					<td th:text="${task.dataCreazione}"></td>
+
+					<td>
+						<form method="POST"
+							th:action="@{/project/task/{taskid}/delete(taskid=${task.id})}">
+							<button type="submit" name="submit" value="value">CANCELLA</button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<form method="GET"
+		th:action="@{/add/task/{projectid}/(projectid=${project.id})}">
+		<button type="submit" name="submit" value="value">AGGIUNGI
+			TASK</button>
+	</form>
+
+
+	<div>
+		<h3 style="background-color: red;">&#8594;Tag del progetto</h3>
+		<table class="table table -hover">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Colore</th>
+					<th>Descrizione</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="tag : ${project.tags}">
+					<td th:text="${tag.nome}"></td>
+					<td th:text="${tag.colore}"></td>
+					<td th:text="${tag.descrizione}"></td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<form method="GET"
+		th:action="@{/add/tag/{projectid}/(projectid=${project.id})}">
+		<button type="submit" name="submit" value="value">AGGIUNGI
+			TAG</button>
+	</form>
+
+	<div>
+		<h3>Torna alla <a href="/home">Home</a></h3>
+	</div>
+
+
+</body>
+</html>

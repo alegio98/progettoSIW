@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it-IT" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Visible Projects</title>
+</head>
+
+
+<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+</style>
+
+<body>
+
+	<h1>Lista di tutti i progetti</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Nome Progetto</th>
+				<th>Descrizione Progetto</th>
+				<th>Nome proprietario</th>
+				<th>Cognome proprietario</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr th:each="project : ${projectsForm}">
+				<td th:text="${project.nome}"></td>
+				<td th:text="${project.descrizione}"></td>
+				<td th:text="${project.owner.nome}"></td>
+				<td th:text="${project.owner.cognome}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
+

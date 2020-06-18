@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it-IT" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Progetti</title>
+</head>
+<body>
+	<div>
+		<h2>I miei progetti</h2>
+		<table class="table table -hover">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Descrizione</th>
+					<th>Cancella</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="project : ${projectsList}">
+					<td><a th:href="'/projects/' + ${project.id}"
+						th:text="${project.nome}">..</a></td>
+					<td th:text="${project.descrizione}">..</td>
+
+					<td>
+						<form method="POST"
+							th:action="@{/projects/{projectid}/delete(projectid=${project.id})}">
+							<button type="submit" name="submit" value="value">CANCELLA</button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+	</div>
+</body>
+</html>

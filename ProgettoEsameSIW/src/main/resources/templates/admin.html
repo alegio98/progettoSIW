@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="it-IT" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ProgettoSIW</title>
+</head>
+
+<body>
+	<h1 th:text="'Benvenuto ' + ${loggedUser.nome} + '!'"></h1>
+	<h4>
+		<a href="/admin/users">Lista di tutti gli utenti</a>
+	</h4>
+
+</body>
+</html>

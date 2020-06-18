@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="it-IT" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Registrazione avvenuta con successo</title>
+</head>
+<body>
+	<h2
+		th:text="'Grazie per la registrazione' + ' ' + ${utente.nome} + '!'"></h2>
+	<h3>
+		Torna alla -> <a href="/index">Home</a>
+	</h3>
+</body>
+</html>
